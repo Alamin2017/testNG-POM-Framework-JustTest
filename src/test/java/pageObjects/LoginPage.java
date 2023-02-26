@@ -1,9 +1,7 @@
 package pageObjects;
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import utilities.ElementActions;
 public class LoginPage {
-
     private static By txtEmail= By.xpath("//input[@id='input-email']");
     private static By txtPass=By.xpath("//input[@id='input-password']");
     private static By btnLogin=By.xpath("//input[@value='Login']");
@@ -20,5 +18,4 @@ public class LoginPage {
     {
         ElementActions.clickElement(btnLogin);
     }
-
 }

@@ -1,21 +1,18 @@
 package utilities;
-
 import envPage.BaseClass;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-
 public class ElementActions extends BaseClass {
-    public static WebElement findAndWaitForElement(By xpath)
+    public static WebElement findAndWaitForElement(By locator)
     {
-        WebElement element=null;
+        WebElement element = null;
         try{
-            // WebDriverWait wait=new WebDriverWait(driver,30);
             WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
-            element=wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(xpath)));
+            element=wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(locator)));
         }
         catch (Exception e)
         {
@@ -35,4 +32,11 @@ public class ElementActions extends BaseClass {
     {
         return findAndWaitForElement(element).getText();
     }
+    public static void scrollingElement(By element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement elementScroll=findAndWaitForElement(element);
+        js.executeScript("arguments[0].scrollIntoView();",elementScroll);
+
+    }
+
 }
