@@ -11,8 +11,14 @@ public class ElementActions extends BaseClass {
     {
         WebElement element = null;
         try{
-            WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
-            element=wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(locator)));
+            WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(150));
+//            element=wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(locator)));
+
+//            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+//            element=driver.findElement(locator);
+
+            element=wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            //element=driver.findElement(locator);
         }
         catch (Exception e)
         {
@@ -20,21 +26,21 @@ public class ElementActions extends BaseClass {
         }
         return element;
     }
-    public static void clickElement(By element)
+    public static void clickElement(By locator)
     {
-        findAndWaitForElement(element).click();
+        findAndWaitForElement(locator).click();
     }
-    public static void enterText(By element,String text)
+    public static void enterText(By locator,String text)
     {
-        findAndWaitForElement(element).sendKeys(text);
+        findAndWaitForElement(locator).sendKeys(text);
     }
-    public static String getText(By element)
+    public static String getText(By locator)
     {
-        return findAndWaitForElement(element).getText();
+        return findAndWaitForElement(locator).getText();
     }
-    public static void scrollingElement(By element) {
+    public static void scrollingElement(By locator) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement elementScroll=findAndWaitForElement(element);
+        WebElement elementScroll=findAndWaitForElement(locator);
         js.executeScript("arguments[0].scrollIntoView();",elementScroll);
 
     }
