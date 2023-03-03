@@ -36,13 +36,14 @@ public class BS23_Page {
     public static void clickContinueButton() {
         ElementActions.clickElement(continueButton);
     }
-    public static By shareBus=By.xpath("/html/body/div[1]/div[1]/div[2]/button/div/span[1]");
+    public static By shareBus=By.xpath("//span[normalize-space()='Set up a Sharebus']");
+    public static void scrollingShareBus() throws InterruptedException {
+        ElementActions.scrollElement(shareBus);
+    }
     public static void clickShareBus() {
         ElementActions.clickElement(shareBus);
     }
-    public static void scrollingShareBus() throws InterruptedException {
-        ElementActions.scrollingElement(shareBus);
-    }
+
     public static By departureLocator=By.xpath("//input[@id='startPoint']");
     public static void departureValue() throws InterruptedException {
         WebElement departure=ElementActions.findAndWaitForElement(departureLocator);
@@ -53,7 +54,6 @@ public class BS23_Page {
         departure.sendKeys(Keys.ENTER);
         Thread.sleep(2000);
     }
-
     public static By destinationLocator=By.xpath("//input[@id='destination']");
     public static void destinationValue() throws InterruptedException {
         WebElement destination=ElementActions.findAndWaitForElement(destinationLocator);
@@ -67,7 +67,7 @@ public class BS23_Page {
     }
     public static By switchReturn=By.xpath("//*[@id=\"app\"]/div[1]/div[1]/div[2]/div[1]/div/form/div[1]/div[3]/div[3]/label");
     public static void scrollingSwitchReturn() {
-        ElementActions.scrollingElement(switchReturn);
+        ElementActions.scrollElement(switchReturn);
     }
     public static void clickSwitchReturn() {
         ElementActions.clickElement(switchReturn);

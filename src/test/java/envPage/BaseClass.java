@@ -1,13 +1,10 @@
 package envPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
-
 import java.util.concurrent.TimeUnit;
 
 public class BaseClass {
@@ -23,7 +20,7 @@ public class BaseClass {
     @AfterMethod
     public void closeDriver() throws InterruptedException {
         Thread.sleep(3000);
-        driver.quit();
+        //driver.quit();
     }
     public static WebDriver getBrowser(String browser)
     {

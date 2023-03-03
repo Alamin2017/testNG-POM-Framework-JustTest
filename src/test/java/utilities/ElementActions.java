@@ -7,18 +7,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 public class ElementActions extends BaseClass {
-    public static WebElement findAndWaitForElement(By locator)
-    {
+
+    public static WebElement findAndWaitForElement(By locator) {
         WebElement element = null;
         try{
-            WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(150));
-//            element=wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(locator)));
+            WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
 
-//            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            element=wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(locator)));
+
+//
+//            element=wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+//
+//            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 //            element=driver.findElement(locator);
 
-            element=wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-            //element=driver.findElement(locator);
+            //element=wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         }
         catch (Exception e)
         {
@@ -26,23 +29,18 @@ public class ElementActions extends BaseClass {
         }
         return element;
     }
-    public static void clickElement(By locator)
-    {
+    public static void clickElement(By locator) {
         findAndWaitForElement(locator).click();
     }
-    public static void enterText(By locator,String text)
-    {
+    public static void enterText(By locator,String text) {
         findAndWaitForElement(locator).sendKeys(text);
     }
-    public static String getText(By locator)
-    {
+    public static String getText(By locator) {
         return findAndWaitForElement(locator).getText();
     }
-    public static void scrollingElement(By locator) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement elementScroll=findAndWaitForElement(locator);
-        js.executeScript("arguments[0].scrollIntoView();",elementScroll);
-
+    public static void scrollElement(By locator) {
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        WebElement element_scroll=findAndWaitForElement(locator);
+        js.executeScript("arguments[0].scrollIntoView();",element_scroll);
     }
-
 }
