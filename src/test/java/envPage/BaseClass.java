@@ -20,7 +20,7 @@ public class BaseClass {
     @AfterMethod
     public void closeDriver() throws InterruptedException {
         Thread.sleep(3000);
-        //driver.quit();
+        driver.quit();
     }
     public static WebDriver getBrowser(String browser)
     {
