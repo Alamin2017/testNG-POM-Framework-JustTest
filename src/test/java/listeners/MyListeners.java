@@ -7,9 +7,19 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import static envPage.BaseClass.driver;
 
 public class MyListeners implements ITestListener {
 
@@ -41,9 +51,20 @@ public class MyListeners implements ITestListener {
         test.log(Status.PASS, MarkupHelper.createLabel("Name of the passed test case is:"+result.getName() , ExtentColor.GREEN));
     }
     public void onTestFailure(ITestResult result) {
+
         System.out.println("Name of test method not executed"+result.getName());
         test=reports.createTest(result.getName());
         test.log(Status.FAIL, MarkupHelper.createLabel("Name of the failed test case is:"+result.getName() ,ExtentColor.RED));
+
+        File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String time = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss-aa").format(new Date());
+        String fileWithPath = "./src/test/resources/screenshots/failures/fail" + time + ".png";
+        File DestFile = new File(fileWithPath);
+        try {
+            FileUtils.copyFile(screenshotFile, DestFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     public void onTestSkipped(ITestResult result) {
         System.out.println("Name of test method skipped"+result.getName());

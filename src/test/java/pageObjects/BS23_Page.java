@@ -25,6 +25,7 @@ public class BS23_Page {
         ElementActions.clickElement(submitSignInButton);
     }
     public static By dropDown=By.xpath("//div[@class='text-start']//img[@alt='joiner']");
+
     public static void clickDropDown() {
         ElementActions.clickElement(dropDown);
     }

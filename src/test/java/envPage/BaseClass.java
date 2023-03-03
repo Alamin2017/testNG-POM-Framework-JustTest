@@ -15,7 +15,7 @@ public class BaseClass {
     {
         driver=getBrowser(browser);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+       // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
     @AfterMethod
     public void closeDriver() throws InterruptedException {

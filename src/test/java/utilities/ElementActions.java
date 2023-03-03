@@ -11,9 +11,9 @@ public class ElementActions extends BaseClass {
     public static WebElement findAndWaitForElement(By locator) {
         WebElement element = null;
         try{
-            WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
-
-            element=wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(locator)));
+            WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(50));
+//
+//            element=wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(locator)));
 
 //
 //            element=wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -21,7 +21,7 @@ public class ElementActions extends BaseClass {
 //            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 //            element=driver.findElement(locator);
 
-            //element=wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            element=wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         }
         catch (Exception e)
         {
