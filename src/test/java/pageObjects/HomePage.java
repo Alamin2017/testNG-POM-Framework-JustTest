@@ -14,7 +14,6 @@ public class HomePage {
     public static void validateText(String expectedText)
     {
         String actualText= ElementActions.getText(myAccountText);
-        System.out.println("Text:"+actualText);
         Assert.assertEquals(expectedText,actualText);
     }
     public static void clickAllLaptopAndNotebooks()

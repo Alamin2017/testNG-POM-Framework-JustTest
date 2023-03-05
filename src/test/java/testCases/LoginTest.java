@@ -5,7 +5,7 @@ import pageObjects.HomePage;
 import pageObjects.LoginPage;
 public class LoginTest extends BaseClass {
     @Test(priority = 1)
-    public void LoginTest() throws InterruptedException {
+    public void Login_Test() throws InterruptedException {
         driver.get("http://tutorialsninja.com/demo/index.php?route=account/login");
         LoginPage.enterUsername("patebij@gmail.com");
         LoginPage.enterPassword("test@123");
@@ -21,6 +21,8 @@ public class LoginTest extends BaseClass {
         HomePage.validateText("My Account");
         HomePage.clickAllLaptopAndNotebooks();
         Thread.sleep(5000);
+
+
     }
 
 }

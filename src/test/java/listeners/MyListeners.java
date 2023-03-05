@@ -1,5 +1,4 @@
 package listeners;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -7,7 +6,11 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import envPage.BaseClass;
 import org.apache.commons.io.FileUtils;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
@@ -21,11 +24,13 @@ import java.util.Date;
 
 import static envPage.BaseClass.driver;
 
-public class MyListeners implements ITestListener {
 
+public class MyListeners implements ITestListener {
     ExtentSparkReporter htmlReporter;
     ExtentReports reports;
     ExtentTest test;
+    public static Logger logger= LogManager.getLogger("JustTest");
+
     public void configureReport()
     {
         htmlReporter=new ExtentSparkReporter("ExtentListenerReport.html");
@@ -49,12 +54,16 @@ public class MyListeners implements ITestListener {
         System.out.println("Name of test method successfully executed:"+result.getName());
         test=reports.createTest(result.getName());
         test.log(Status.PASS, MarkupHelper.createLabel("Name of the passed test case is:"+result.getName() , ExtentColor.GREEN));
+
+        logger.info("Test is Passed:"+result.getName());
     }
     public void onTestFailure(ITestResult result) {
 
         System.out.println("Name of test method not executed"+result.getName());
         test=reports.createTest(result.getName());
         test.log(Status.FAIL, MarkupHelper.createLabel("Name of the failed test case is:"+result.getName() ,ExtentColor.RED));
+
+        logger.info("Test is failed:"+result.getName());
 
         File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         String time = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss-aa").format(new Date());
@@ -70,6 +79,9 @@ public class MyListeners implements ITestListener {
         System.out.println("Name of test method skipped"+result.getName());
         test=reports.createTest(result.getName());
         test.log(Status.SKIP, MarkupHelper.createLabel("Name of the skipped test case is:"+result.getName() ,ExtentColor.YELLOW));
+
+        logger.info("Test is skipped:"+result.getName());
+
     }
     public void onFinish(ITestContext context) {
         System.out.println("On Finish method invoked");

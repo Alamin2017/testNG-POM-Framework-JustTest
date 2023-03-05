@@ -1,21 +1,29 @@
 package envPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
+
 import java.util.concurrent.TimeUnit;
+
 
 public class BaseClass {
     public static WebDriver driver;
     public static String browser="chrome";
+
+    //public static Logger logger;
     @BeforeMethod
     public void initializeDriver()
     {
         driver=getBrowser(browser);
         driver.manage().window().maximize();
-       // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        //logger=LogManager.getLogger("JustTest");
+
     }
     @AfterMethod
     public void closeDriver() throws InterruptedException {
