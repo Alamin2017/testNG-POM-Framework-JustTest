@@ -12,20 +12,20 @@ public class ElementActions extends BaseClass {
         WebElement element = null;
         try{
             WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(50));
-//
+
 //            element=wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(locator)));
 
-//
 //            element=wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-//
-//            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-//            element=driver.findElement(locator);
 
-            element=wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            element=driver.findElement(locator);
+
+//            element=wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         }
         catch (Exception e)
         {
             System.out.println("Element not found & Try to find valid locator ");
+            e.printStackTrace();
         }
         return element;
     }
@@ -40,7 +40,11 @@ public class ElementActions extends BaseClass {
     }
     public static void scrollElement(By locator) {
         JavascriptExecutor js = (JavascriptExecutor)driver;
-        WebElement element_scroll=findAndWaitForElement(locator);
-        js.executeScript("arguments[0].scrollIntoView();",element_scroll);
+        WebElement element=findAndWaitForElement(locator);
+        js.executeScript("arguments[0].scrollIntoView();",element);
+    }
+    public static boolean visibilityElement(By locator)
+    {
+        return findAndWaitForElement(locator).isDisplayed();
     }
 }

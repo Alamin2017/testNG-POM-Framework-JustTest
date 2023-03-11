@@ -41,10 +41,19 @@ public class BS23_Page {
     public static void scrollingShareBus() throws InterruptedException {
         ElementActions.scrollElement(shareBus);
     }
+    public static void visibilityCheckAndClick() throws InterruptedException {
+        if(ElementActions.visibilityElement(shareBus)) {
+            clickShareBus();
+        }
+        else{
+            scrollingShareBus();
+            Thread.sleep(1000);
+            clickShareBus();
+        }
+    }
     public static void clickShareBus() {
         ElementActions.clickElement(shareBus);
     }
-
     public static By departureLocator=By.xpath("//input[@id='startPoint']");
     public static void departureValue() throws InterruptedException {
         WebElement departure=ElementActions.findAndWaitForElement(departureLocator);
@@ -73,16 +82,5 @@ public class BS23_Page {
     public static void clickSwitchReturn() {
         ElementActions.clickElement(switchReturn);
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }

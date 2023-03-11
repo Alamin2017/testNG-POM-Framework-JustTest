@@ -1,8 +1,5 @@
 package testCases;
 import envPage.BaseClass;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pageObjects.BS23_Page;
 public class BS23_Test extends BaseClass {
@@ -27,9 +24,7 @@ public class BS23_Test extends BaseClass {
         Thread.sleep(1000);
         BS23_Page.clickContinueButton();
         Thread.sleep(3000);
-        BS23_Page.scrollingShareBus();
-        Thread.sleep(1000);
-        BS23_Page.clickShareBus();
+        BS23_Page.visibilityCheckAndClick();
         Thread.sleep(1000);
         BS23_Page.departureValue();
         Thread.sleep(1000);
@@ -39,8 +34,6 @@ public class BS23_Test extends BaseClass {
         Thread.sleep(1000);
         BS23_Page.clickSwitchReturn();
         Thread.sleep(1000);
-
-
 
 
     }
