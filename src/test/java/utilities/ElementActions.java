@@ -9,6 +9,7 @@ import java.time.Duration;
 public class ElementActions extends BaseClass {
 
     public static WebElement findAndWaitForElement(By locator) {
+
         WebElement element = null;
         try{
             WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(50));
@@ -20,7 +21,7 @@ public class ElementActions extends BaseClass {
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             element=driver.findElement(locator);
 
-//            element=wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+//          element=wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         }
         catch (Exception e)
         {

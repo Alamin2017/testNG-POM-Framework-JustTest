@@ -13,13 +13,13 @@ import org.testng.annotations.*;
 public class BaseClass {
     public static WebDriver driver;
     public static String browser="chrome";
-    public static Logger logger;
+    public static Logger logger=LogManager.getLogger("JustTest");
     @BeforeMethod
     public void initializeDriver()
     {
         driver=getBrowser(browser);
         driver.manage().window().maximize();
-        logger= LogManager.getLogger("JustTest");
+//        logger= LogManager.getLogger("JustTest");
     }
     @AfterMethod
     public void closeDriver() throws InterruptedException {
@@ -47,7 +47,8 @@ public class BaseClass {
                 WebDriverManager.firefoxdriver().setup();
                 driver=new FirefoxDriver(options);
             }
-            else {
+            else
+            {
                 EdgeOptions options=new EdgeOptions();
                 options.addArguments("--remote-allow-origins=*");
                 options.setCapability("ignore-certificate-errors" , true);

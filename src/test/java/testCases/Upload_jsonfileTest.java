@@ -1,5 +1,4 @@
 package testCases;
-
 import envPage.BaseClass;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -10,11 +9,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Upload_DDTJSONTest extends BaseClass {
+public class Upload_jsonfileTest extends BaseClass {
 
     @Test
     public void test_uploading() throws InterruptedException {

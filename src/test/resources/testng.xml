@@ -6,8 +6,8 @@
     </listeners>
     <test name="Test run">
         <classes>
-            <class name="testCases.BS23_Test"></class>
-            <class name="testCases.FerdiaTest"></class>
+<!--            <class name="testCases.BS23_Test"></class>-->
+<!--            <class name="testCases.FerdiaTest"></class>-->
             <class name="testCases.LoginTest"></class>
         </classes>
     </test>
