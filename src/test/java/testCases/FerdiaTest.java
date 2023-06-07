@@ -36,45 +36,45 @@ public class FerdiaTest extends BaseClass {
         Thread.sleep(5000);
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement shareBus =driver.findElement(By.xpath("//span[normalize-space()='Set up a Sharebus']"));
+        WebElement shareBus = driver.findElement(By.xpath("//span[normalize-space()='Set up a Sharebus']"));
         js.executeScript("arguments[0].scrollIntoView();", shareBus);
         Thread.sleep(4000);
         shareBus.click();
 
-       WebElement departure=driver.findElement(By.xpath("//input[@id='startPoint']"));
-       Thread.sleep(2000);
-       departure.sendKeys("Oslo");
-       Thread.sleep(2000);
-       departure.sendKeys(Keys.DOWN);
-       Thread.sleep(2000);
-       departure.sendKeys(Keys.ENTER);
-       Thread.sleep(2000);
+        WebElement departure = driver.findElement(By.xpath("//input[@id='startPoint']"));
+        Thread.sleep(2000);
+        departure.sendKeys("Oslo");
+        Thread.sleep(2000);
+        departure.sendKeys(Keys.DOWN);
+        Thread.sleep(2000);
+        departure.sendKeys(Keys.ENTER);
+        Thread.sleep(2000);
 
-       WebElement destination=driver.findElement(By.xpath("//input[@id='destination']"));
-       Thread.sleep(2000);
-       destination.sendKeys("Kolbotn");
-       Thread.sleep(2000);
-       destination.sendKeys(Keys.DOWN);
-       Thread.sleep(2000);
-       destination.sendKeys(Keys.ENTER);
-       Thread.sleep(2000);
+        WebElement destination = driver.findElement(By.xpath("//input[@id='destination']"));
+        Thread.sleep(2000);
+        destination.sendKeys("Kolbotn");
+        Thread.sleep(2000);
+        destination.sendKeys(Keys.DOWN);
+        Thread.sleep(2000);
+        destination.sendKeys(Keys.ENTER);
+        Thread.sleep(2000);
 
-        WebElement switch_return=driver.findElement(By.xpath("//label[@for='returnTripswitch']"));
+        WebElement switch_return = driver.findElement(By.xpath("//label[@for='returnTripswitch']"));
         js.executeScript("arguments[0].scrollIntoView();", switch_return);
         Thread.sleep(2000);
         switch_return.click();
         Thread.sleep(2000);
 
-       driver.findElement(By.xpath("//input[@placeholder='Departure Date']")).click();
-       Thread.sleep(2000);
-       driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/div[2]/table/tbody/tr[1]/td[7]/span")).click();
-       Thread.sleep(2000);
-       driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div/form/div[1]/div[3]/div[1]/div[1]/div/div[2]/span/input")).click();
-       Thread.sleep(2000);
-       driver.findElement(By.xpath("//span[normalize-space()='Continue']")).click();
-       Thread.sleep(10000);
+        driver.findElement(By.xpath("//input[@placeholder='Departure Date']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/div[2]/table/tbody/tr[1]/td[7]/span")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div/form/div[1]/div[3]/div[1]/div[1]/div/div[2]/span/input")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//span[normalize-space()='Continue']")).click();
+        Thread.sleep(10000);
 
-       driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div/div[1]/div[1]/button[2]")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div[2]/div[1]/div/div[1]/div[1]/button[2]")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("//span[normalize-space()='Continue']")).click();
         Thread.sleep(3000);
@@ -83,7 +83,7 @@ public class FerdiaTest extends BaseClass {
         driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/button[2]")).click();
         Thread.sleep(3000);
 
-        WebElement CreateShareBus=driver.findElement(By.xpath("//span[normalize-space()='Create Sharebus']"));
+        WebElement CreateShareBus = driver.findElement(By.xpath("//span[normalize-space()='Create Sharebus']"));
         js.executeScript("arguments[0].scrollIntoView();", CreateShareBus);
         Thread.sleep(3000);
         CreateShareBus.click();
@@ -97,7 +97,7 @@ public class FerdiaTest extends BaseClass {
         driver.findElement(By.xpath("//p[normalize-space()='Vacation']")).click();
         Thread.sleep(3000);
 
-        WebElement preview_and_publish=driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/form/div[5]/button/span[1]"));
+        WebElement preview_and_publish = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/form/div[5]/button/span[1]"));
         js.executeScript("arguments[0].scrollIntoView();", preview_and_publish);
         Thread.sleep(3000);
         preview_and_publish.click();

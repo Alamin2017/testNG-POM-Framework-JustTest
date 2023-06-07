@@ -1,8 +1,10 @@
 package testCases;
+
 import envPage.BaseClass;
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
+
 public class LoginTest extends BaseClass {
     @Test(priority = 1)
     public void Login_Test() throws InterruptedException {
@@ -16,6 +18,7 @@ public class LoginTest extends BaseClass {
         logger.info("click login button");
         Thread.sleep(5000);
     }
+
     @Test(priority = 2)
     public void ProductTest() throws InterruptedException {
         driver.get("http://tutorialsninja.com/demo/index.php?route=account/login");
